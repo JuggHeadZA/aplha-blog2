@@ -1,0 +1,38 @@
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
+</head>
+
+<body>
+
+<h1 style="color: black"><b>This is the Alpha-blog about page</b></h1>
+
+<%= link_to image_tag('profile.jpg'), 'www.mashrurhossain.com' %>
+
+<div style="width: 800px">
+<p style="float: left">Learning HTML was easier than Ruby:).</p>
+<p style="float: right">It was easier than Ruby :(.</p>
+</div>
+<br><br>
+
+<p style-"float: centre">Please input your name and Surname below to get started learning Ruby on Rails</p>
+
+<form>
+
+  First Name:<br>
+  <input type="text" name="firstname"><br>
+  Last Name:<br>
+  <input type="text" name="lastname"><br><br>
+  <input type="submit" value="Submit">
+
+</form>
+<br><br>
+
+<%= link_to 'Home', root_path %>
+
+</body>
+</html>
