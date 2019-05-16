@@ -1,28 +1,4 @@
-<html>
-<head>
-<style>
-body {
-  background-color: lightblue;
-}
-</style>
-</head>
-
-<body style=" background-image: url('/assets/images/background.jpg'); background-size: cover;">
-
-<h1 style="color: black"><b>This is the Alpha-Blog Home Page</b></h1>
-
-<%= link_to image_tag('profile.jpg'), 'www.mashrurhossain.com' %>
-
-<div style="width: 800px">
-<p style="float: left">Learning HTML was easier than Ruby:).</p>
-<p style="float: right">It was easasier than Ruby :(.</p>
+<div class="center jumbotron">
+  <h1>ALPHA BLOG</h1>
+  <%= link_to "Sign up now", "#", class: "btn btn-primary btn-lg btn-xlarge" %>
 </div>
-<br><br>
-
-<p>
-  <%= link_to "Click here to go access article management tool", articles_path %> 
-</p>
-<%= link_to 'About', about_path %>
-
-</body>
-</html>
