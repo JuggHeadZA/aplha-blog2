@@ -49,9 +49,6 @@ class UsersController < ApplicationController
   def user_params
       params.require(:user).permit(:username, :email, :password)
   end
-  def set_user
-    @user = User.find(params[:id])
-  end
 
   def require_same_user
     if current_user != @user and !current_user.admin?
@@ -61,10 +58,10 @@ class UsersController < ApplicationController
   end
 
   def require_admin
-    if logged_in? && !current_user.admin?
+    if logged_in? and !current_user.admin?
       flash[:danger] = "Only admin users can perform that action"
       redirect_to root_path
     end
-  end  
+  end
 
 end
