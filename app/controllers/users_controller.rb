@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
   before_action :require_same_user, only: [:edit, :update, :destroy]
-  before_action :require_admin, onlly: [:destroy]
+  before_action :require_admin, only: [:destroy]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -27,8 +27,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-       flash[:success] = "Your account was updated successfully"
-       redirect_to articles_path
+      flash[:success] = "Your account was updated successfully"
+      redirect_to articles_path
     else
       render 'edit'
     end
@@ -47,7 +47,11 @@ class UsersController < ApplicationController
 
   private
   def user_params
-      params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def require_same_user
@@ -63,5 +67,4 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
